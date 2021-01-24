@@ -52,5 +52,9 @@
 
             await scanner.show();
         })();
-    </script>
+    </script><script>
+	scanner.onUnduplicatedRead = txt => {
+let licenseInfo = parseDriverLicense(txt);
+alert(JSON.stringify(licenseInfo));
+}; </script>
 </body></html>
