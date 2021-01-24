@@ -16,7 +16,17 @@
     -->
     <script src="https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode@7.4.0-v1/dist/dbr.js" data-productKeys="t0136mQIAAE4+7U8hLeV8/SeIKgaCntLcrJoldnaJm2ckLK4dPmzE7YShl38obYUXStLFQ3rXq8Kb/luyl8DjI0HtiXZQr14sHYO1ivJXPs0nY4f5VKNmcFPni+MiZixgNDa1Lzz0bv08Z2MBo7Hp5kH215t3gVvLwydjAaOxaXmuhlRK/vE/RpyCiw=="></script>
     <script src="driverlicense.js"></script>
+	 <script>
+        let scanner = null;
+        (async()=>{
+            scanner = await Dynamsoft.BarcodeScanner.createInstance();
+            scanner.onFrameRead = results => {console.log(results);};
+            scanner.onUnduplicatedRead = (txt, result) => {alert(txt);};
+            await scanner.show();
+        })();
+    </script> 
     <script>
+	
         let scanner = null;
         (async ()=>{
             scanner = await Dynamsoft.BarcodeScanner.createInstance();
